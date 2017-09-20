@@ -1,0 +1,66 @@
+<div style="text-align:center">
+<h1>
+  HospitalManagement
+
+</h1>
+
+<div class="panel-body">
+<form #myForm="ngForm" class="form-horizontal" (submit)="addPatient1()" ngNativeValidate>
+<div class="form-group">
+<label for="name" class="col-sm-2 control-label">Name : </label>
+<div class="col-xs-3">
+<input type="text" class="form-control" [(ngModel)]="model.name" name="name" required>
+</div>
+</div>
+
+<div class="form-group">
+<label for="priority" class="col-sm-2 control-label">reason : </label>
+<div class="col-xs-3">
+<input type="text" class="form-control" [(ngModel)]="model.reason" name="reason"required>
+</div>
+</div>
+
+<div class="form-group">
+<label for="priority" class="col-sm-2 control-label">Phone_no : </label>
+<div class="col-xs-3">
+<input type="text" class="form-control" [(ngModel)]="model.phone_no" name="phone_no"required>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-sm-offset-2 col-sm-8">
+<button type="submit" class="btn btn-success" >Save</button>
+<button type="reset" class="btn btn-danger" >Cancel</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<div class="container">
+<table class="table table-bordered">
+<thead>
+<tr>
+<td>Id</td>
+<td>Name</td>
+<td>Reason</td>
+<td>Phoneno</td>
+<td width="200" align="center">Action</td>
+</tr>
+</thead>
+<tbody>
+<tbody>
+
+<tr *ngFor="let pat of doctor">
+<td>{{pat.id}}</td>
+<td>{{pat.name}}</td>
+<td>{{pat.reason}}</td>
+<td>{{pat.phone_no}}</td>
+<td width="275">
+<button type="submit" class="btn btn-success"  (click)="editpatient(pat.id)">Edit</button>
+<button type="submit"class="btn btn-danger"  (click)="deletepatient(pat.id)">Delete</button> 
+
+</td>
+</tr>
+</tbody>
+</table>
+</div>
